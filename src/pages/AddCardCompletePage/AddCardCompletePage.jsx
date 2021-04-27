@@ -25,7 +25,7 @@ const cardMockUp = {
 };
 
 // TODO : 카드 크기 조절하기
-const AddCardCompletePage = ({}) => {
+const AddCardCompletePage = ({ selectedCardType, cardNickName }) => {
   return (
     <div className={cx("add-card-complete-page")}>
       <main className={cx("add-card-complete-page__main")}>

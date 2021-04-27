@@ -11,7 +11,7 @@ import InputBoxList from "../../components/InputBoxList/InputBoxList";
 
 const cx = classNames.bind(styles);
 
-const CardInputContainer = ({ cardNumberList, cardOwner, cardExpiration, cardCVC, cardPassword }) => {
+const CardInputContainer = ({ cardOwner, cardExpiration, cardCVC, cardPassword, onCardInputChange }) => {
   return (
     <form className={cx("card-input-container")}>
       {/* TODO: placeholder 추가 */}
@@ -20,7 +20,7 @@ const CardInputContainer = ({ cardNumberList, cardOwner, cardExpiration, cardCVC
         key={INPUT_LABEL_TEXT.CARD_NUMBER}
         className={cx("card-input-container__number")}
         labelText={INPUT_LABEL_TEXT.CARD_NUMBER}
-        value={cardNumberList}
+        onCardInputChange={onCardInputChange}
       />
       <Input
         inputWidth="137px"
@@ -28,7 +28,7 @@ const CardInputContainer = ({ cardNumberList, cardOwner, cardExpiration, cardCVC
         key={INPUT_LABEL_TEXT.CARD_EXPIRATION}
         className={cx("card-input-container__expiration")}
         labelText={INPUT_LABEL_TEXT.CARD_EXPIRATION}
-        value={cardExpiration}
+        // value={cardExpiration}
       />
       <TextLimitInput
         inputWidth="100%"
@@ -36,20 +36,20 @@ const CardInputContainer = ({ cardNumberList, cardOwner, cardExpiration, cardCVC
         lengthLimit={CARD_INPUT.OWNER_NAME_LENGTH_LIMIT}
         className={cx("card-input-container__owner")}
         labelText={INPUT_LABEL_TEXT.CARD_OWNER}
-        value={cardOwner}
+        // value={cardOwner}
       />
       <GuideInput
         inputWidth="84px"
         className={cx("card-input-container__cvc")}
         labelText={INPUT_LABEL_TEXT.CARD_CVC}
-        value={cardCVC}
+        // value={cardCVC}
       />
       <InputBoxList
         numbers={[1, 2]}
         dotCount={2}
         className={cx("card-input-container__password")}
         labelText={INPUT_LABEL_TEXT.CARD_PASSWORD}
-        value={cardPassword}
+        // value={cardPassword}
       />
     </form>
   );

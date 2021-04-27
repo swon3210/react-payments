@@ -14,55 +14,16 @@ import Button from "../../components/Button/Button";
 
 const cx = classNames.bind(styles);
 
-const cardMockUp = {
-  cardName: "",
-  backgroundColor: "#D2D2D2",
-  cardNumberList: [
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-  ],
-  cardOwner: "NAME",
-  cardExpiration: "MM/YY",
-};
-
-const cardTypeMockUps = [
-  {
-    color: "#E24141",
-    name: "포코카드",
-  },
-  {
-    color: "#04C09E",
-    name: "로이드 카드",
-  },
-  {
-    color: "#E24141",
-    name: "포코카드",
-  },
-  {
-    color: "#E24141",
-    name: "포코카드",
-  },
-  {
-    color: "#E24141",
-    name: "포코카드",
-  },
-  {
-    color: "#E24141",
-    name: "포코카드",
-  },
-  {
-    color: "#E24141",
-    name: "포코카드",
-  },
-  {
-    color: "#E24141",
-    name: "포코카드",
-  },
-];
-
-const AddCardPage = ({}) => {
+const AddCardPage = ({
+  selectedCardType,
+  cardTypes,
+  cardNumber,
+  cardOwner,
+  cardExpiration,
+  cardCVC,
+  cardPassword,
+  onCardInputChange,
+}) => {
   // slider test
   const [pageState, setPageState] = useState({
     isBottomSliderToggled: false,
@@ -110,13 +71,19 @@ const AddCardPage = ({}) => {
         </Link>
       </header>
       {/* onClick for slider test */}
-      <main className={cx("add-card-page__main")} onClick={showCardTypeContainer}>
-        <Card className={cx("add-card-page__card")} {...cardMockUp} />
-        <CardInputContainer />
+      <main className={cx("add-card-page__main")}>
+        <Card className={cx("add-card-page__card")} />
+        <CardInputContainer
+          cardOwner={cardOwner}
+          cardExpiration={cardExpiration}
+          cardCVC={cardCVC}
+          cardPassword={cardPassword}
+          onCardInputChange={onCardInputChange}
+        />
       </main>
       {pageState.isBottomSliderToggled && (
         <CardTypeContainer
-          cardTypes={cardTypeMockUps}
+          cardTypes={cardTypes}
           hideCardTypeContainer={hideCardTypeContainer}
           backDropAnimationClass={pageState.backDropAnimation}
           bottomSliderAnimationClass={pageState.sliderAnimation}

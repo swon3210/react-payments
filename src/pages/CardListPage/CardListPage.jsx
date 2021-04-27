@@ -10,6 +10,7 @@ import { ANIMATION, HEADER_TEXT, PAGE_PATH } from "../../constants";
 
 const cx = classNames.bind(styles);
 
+// TODO : CardNumberList -> CardNumber 로 형식 바꾸기
 // 목업용 더미 데이터
 const cardMockUps = [
   {
